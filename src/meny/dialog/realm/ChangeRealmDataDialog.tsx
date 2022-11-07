@@ -2,12 +2,12 @@ import React, {useState} from "react";
 import {Realm} from "../../../type/Realm";
 
 import {useDispatch} from "react-redux";
-import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
 import {InputText} from "primereact/inputtext";
 import {setMessageForShow} from "../../../store/slice/mainLayoutSlice";
 import {severity, ToastMessage, toMessage} from "../../../type/ToastMessage";
-import {fillAllRealmToStore, saveNewRealmThunk} from "../../../store/thunk/mainLayoutThunk";
+import {saveNewRealmThunk} from "../../../store/thunk/mainLayoutThunk";
+import {DialogFooterButton} from "../button/DialogFooterButton";
 
 
 type props = {
@@ -17,7 +17,6 @@ type props = {
 }
 
 export const ChangeRealmDataDialog: React.FC<props> = ({currentRealm, visible, setVisible}) => {
-
 
     const [name, setName] = useState(currentRealm ? currentRealm.name : "")
 
@@ -67,17 +66,9 @@ export const ChangeRealmDataDialog: React.FC<props> = ({currentRealm, visible, s
 
     const renderFooter = () => {
         return (
-            <div>
-                <Button label={"Close"} icon="pi pi-power-off"
-                        onClick={() => setVisible(false)}
-                        className="p-button-danger"/>
-                <Button label={"Save"} icon="pi pi-save"
-                        onClick={() => save()}
-                        className="p-button-success"/>
-            </div>
+            <DialogFooterButton hide={setVisible} save={save}/>
         );
     }
-
 
     return <>
         <Dialog className={"p-dialog-enter-done"}
