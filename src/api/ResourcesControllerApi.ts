@@ -18,20 +18,25 @@ export const ResourcesControllerApi = {
     },
 
     getApplicationsById: async (realmId: string) => {
-        const response = await ResourcesControllerServices().get(`app/${realmId}`, {
+        return await ResourcesControllerServices().get(`app/${realmId}`, {
                 method: "GET",
             }
-        )
-        return response;
+        );
     },
 
     saveApplication: async (app: Application) => {
-        const response = await ResourcesControllerServices().post(`app`, app, {
+        return await ResourcesControllerServices().post(`app`, app, {
                 method: "POST",
             }
-        )
-        return response;
+        );
 
+    },
+
+    getResourcesByApplicationId: async (applicationId: string) => {
+        return await ResourcesControllerServices().get(`resource/app/${applicationId}`, {
+                method: "GET",
+            }
+        );
     }
 
 

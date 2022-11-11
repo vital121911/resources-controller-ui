@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Realm} from "../../type/Realm";
 import {Application} from "../../type/Application";
 import {ToastMessage} from "../../type/ToastMessage";
+import {Resource} from "../../type/Resource";
 
 
 const mainLayoutSlice = createSlice(
@@ -11,9 +12,10 @@ const mainLayoutSlice = createSlice(
             visibleLeftSideBar: true,
             messageForShow: [] as ToastMessage[],
             allRealm: Array<Realm>(),
-            currentRealm: null as Realm|null,
-            allApplications:[] as Array<Application>,
+            currentRealm: null as Realm | null,
+            allApplications: [] as Array<Application>,
             currentApplication: {} as Application,
+            currentResources: Array<Resource>(),
 
 
         },
@@ -39,7 +41,12 @@ const mainLayoutSlice = createSlice(
 
             setMessageForShow: (state, action: PayloadAction<ToastMessage[]>) => {
                 state.messageForShow = action.payload;
+            },
+
+            setCurrentResources: (state, action: PayloadAction<Resource[]>) => {
+                state.currentResources = action.payload;
             }
+
         }
     }
 )
@@ -49,7 +56,8 @@ export const {
     setAllRealm,
     setCurrentApplication,
     setMessageForShow,
-    setAllApplications
+    setAllApplications,
+    setCurrentResources
 
 } = mainLayoutSlice.actions
 

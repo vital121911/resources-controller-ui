@@ -5,11 +5,13 @@ import {
     setAllRealm,
     setCurrentApplication,
     setCurrentRealm,
+    setCurrentResources,
     setMessageForShow
 } from "../slice/mainLayoutSlice";
 import {Realm} from "../../type/Realm";
 import {severity, toMessage} from "../../type/ToastMessage";
 import {Application} from "../../type/Application";
+import {Resource} from "../../type/Resource";
 
 
 export const fillAllRealmToStore = createAsyncThunk("resources/fillAllRealmToStore", async (arg, thunkAPI) => {
@@ -56,7 +58,7 @@ export const fillAllApplicationsByRealmToStore = createAsyncThunk("resources/fil
     }
 })
 
-export const saveApplication = createAsyncThunk("resources/saveApplicationThunk", async (props: { application: Application, hide:()=>void}, thunkAPI) => {
+export const saveApplication = createAsyncThunk("resources/saveApplicationThunk", async (props: { application: Application, hide: () => void }, thunkAPI) => {
     try {
 
         const response = await ResourcesControllerApi.saveApplication(props.application);
@@ -73,6 +75,44 @@ export const saveApplication = createAsyncThunk("resources/saveApplicationThunk"
         thunkAPI.dispatch(setMessageForShow([toMessage(severity.ERROR, error)]))
     }
 })
+
+export const fillResourcesByApplicationId = createAsyncThunk("resources/fillResourcesByApplicationId", async (props: { applicationId: string }, thunkAPI) => {
+    try {
+
+        const response = await ResourcesControllerApi.getResourcesByApplicationId(props.applicationId);
+        if (response.status === 200) {
+            const resources: Resource[] = response.data;
+            thunkAPI.dispatch(setCurrentResources(resources))
+        } else {
+            thunkAPI.dispatch(setMessageForShow([toMessage(severity.INFO, `response from server ${response.status}`)]))
+        }
+    } catch (error) {
+        console.log(error);
+        // @ts-ignore
+        thunkAPI.dispatch(setMessageForShow([toMessage(severity.ERROR, error)]))
+    }
+})
+
+export const saveResource = createAsyncThunk("resources/saveResource", async (props: { applicationId: string }, thunkAPI) => {
+    try {
+
+        const response = await ResourcesControllerApi.getResourcesByApplicationId(props.applicationId);
+        if (response.status === 200) {
+            const resources: Resource[] = response.data;
+            thunkAPI.dispatch(setCurrentResources(resources))
+        } else {
+            thunkAPI.dispatch(setMessageForShow([toMessage(severity.INFO, `response from server ${response.status}`)]))
+        }
+    } catch (error) {
+        console.log(error);
+        // @ts-ignore
+        thunkAPI.dispatch(setMessageForShow([toMessage(severity.ERROR, error)]))
+    }
+})
+
+
+
+
 
 
 

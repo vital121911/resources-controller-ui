@@ -9,5 +9,6 @@ export const allRealms = (state: AppRootStateType) => state.mainLayoutSlice.allR
 export const currentApplication = (state: AppRootStateType) => state.mainLayoutSlice.currentApplication;
 export const messageForShow = (state: AppRootStateType) => state.mainLayoutSlice.messageForShow;
 export const allApplications = (state: AppRootStateType) => state.mainLayoutSlice.allApplications;
+export const currentResources = (state: AppRootStateType) => state.mainLayoutSlice.currentResources;
 
 
