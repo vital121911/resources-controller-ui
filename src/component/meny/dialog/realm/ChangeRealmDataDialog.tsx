@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {Realm} from "../../../type/Realm";
+import {Realm} from "../../../../type/Realm";
 
 import {useDispatch} from "react-redux";
 import {Dialog} from "primereact/dialog";
 import {InputText} from "primereact/inputtext";
-import {setMessageForShow} from "../../../store/slice/mainLayoutSlice";
-import {severity, ToastMessage, toMessage} from "../../../type/ToastMessage";
-import {saveNewRealmThunk} from "../../../store/thunk/mainLayoutThunk";
+import {setMessageForShow} from "../../../../store/slice/mainLayoutSlice";
+import {severity, ToastMessage, toMessage} from "../../../../type/ToastMessage";
+import {saveNewRealmThunk} from "../../../../store/thunk/mainLayoutThunk";
 import {DialogFooterButton} from "../button/DialogFooterButton";
 
 

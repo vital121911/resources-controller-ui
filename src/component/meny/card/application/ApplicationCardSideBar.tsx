@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {allApplications, currentApplication, selectedRealm} from "../../../store/selector/selector";
+import {allApplications, currentApplication, selectedRealm} from "../../../../store/selector/selector";
 import {SelectItem} from "primereact/selectitem";
-import {Realm} from "../../../type/Realm";
+import {Realm} from "../../../../type/Realm";
 import {ListBox, ListBoxChangeParams} from "primereact/listbox";
-import {Application, itemByApplication} from "../../../type/Application";
-import {setCurrentApplication} from "../../../store/slice/mainLayoutSlice";
+import {Application, itemByApplication} from "../../../../type/Application";
+import {setCurrentApplication} from "../../../../store/slice/mainLayoutSlice";
 import {MenuItem} from "primereact/menuitem";
 import {Card} from "primereact/card";
 import {PanelMenu} from "primereact/panelmenu";
-import {fillAllApplicationsByRealmToStore} from "../../../store/thunk/mainLayoutThunk";
+import {fillAllApplicationsByRealmToStore} from "../../../../store/thunk/mainLayoutThunk";
 import {useNavigate} from "react-router-dom";
-import {uri} from "../../../type/uri";
+import {uri} from "../../../../enums/uri";
 import {ChangeApplicationDataDialog} from "../../dialog/application/ChangeAplicationDataDialog";
 
 type props = {}

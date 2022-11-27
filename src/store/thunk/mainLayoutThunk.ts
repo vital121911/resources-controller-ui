@@ -12,6 +12,7 @@ import {Realm} from "../../type/Realm";
 import {severity, toMessage} from "../../type/ToastMessage";
 import {Application} from "../../type/Application";
 import {Resource} from "../../type/Resource";
+import {VersionDataContainer} from "../../type/VersionDataContainer";
 
 
 export const fillAllRealmToStore = createAsyncThunk("resources/fillAllRealmToStore", async (arg, thunkAPI) => {
@@ -93,10 +94,10 @@ export const fillResourcesByApplicationId = createAsyncThunk("resources/fillReso
     }
 })
 
-export const saveResource = createAsyncThunk("resources/saveResource", async (props: { applicationId: string }, thunkAPI) => {
+export const saveResource = createAsyncThunk("resources/saveResource", async (props: { container: VersionDataContainer }, thunkAPI) => {
     try {
 
-        const response = await ResourcesControllerApi.getResourcesByApplicationId(props.applicationId);
+        const response = await ResourcesControllerApi.saveResource(props.container);
         if (response.status === 200) {
             const resources: Resource[] = response.data;
             thunkAPI.dispatch(setCurrentResources(resources))

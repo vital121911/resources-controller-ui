@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {TabPanel, TabView} from "primereact/tabview";
 import {Card} from "primereact/card";
 import {useSelector} from "react-redux";
-import {currentApplication} from "../store/selector/selector";
+import {currentApplication} from "../../store/selector/selector";
 import {ApplicationConfigurationTable} from "../table/ApplicationConfigurationTable";
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
-import {ApplicationsTabView} from "../tab/ApplicationsTabView";
-import {uri} from "../type/uri";
+import {ApplicationsTabView} from "../component/tab/ApplicationsTabView";
+import {uri} from "../enums/uri";
 
 
 export const MainRoutController: React.FC<any> = () => {

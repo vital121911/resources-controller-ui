@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {allRealms, selectedRealm} from "../../../store/selector/selector";
-import {itemByRealm, Realm} from "../../../type/Realm";
-import {setCurrentRealm} from "../../../store/slice/mainLayoutSlice";
+import {allRealms, selectedRealm} from "../../../../store/selector/selector";
+import {itemByRealm, Realm} from "../../../../type/Realm";
+import {setCurrentRealm} from "../../../../store/slice/mainLayoutSlice";
 import {SelectItem} from "primereact/selectitem";
 import {ListBox, ListBoxChangeParams} from "primereact/listbox";
 import {MenuItem} from "primereact/menuitem";
 import {ChangeRealmDataDialog} from "../../dialog/realm/ChangeRealmDataDialog";
 import {Card} from "primereact/card";
 import {PanelMenu} from "primereact/panelmenu";
-import {fillAllRealmToStore} from "../../../store/thunk/mainLayoutThunk";
+import {fillAllRealmToStore} from "../../../../store/thunk/mainLayoutThunk";
 import {useNavigate} from "react-router-dom";
-import {uri} from "../../../type/uri";
+import {uri} from "../../../../enums/uri";
 
 type props = {}
 

@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Application} from "../../../type/Application";
-import {selectedRealm} from "../../../store/selector/selector";
+import {Application} from "../../../../type/Application";
+import {selectedRealm} from "../../../../store/selector/selector";
 import {Dialog} from "primereact/dialog";
 import {InputText} from "primereact/inputtext";
 import {DialogFooterButton} from "../button/DialogFooterButton";
-import {setMessageForShow} from "../../../store/slice/mainLayoutSlice";
-import {severity, toMessage} from "../../../type/ToastMessage";
-import {saveApplication} from "../../../store/thunk/mainLayoutThunk";
-import {Realm} from "../../../type/Realm";
+import {setMessageForShow} from "../../../../store/slice/mainLayoutSlice";
+import {severity, toMessage} from "../../../../type/ToastMessage";
+import {saveApplication} from "../../../../store/thunk/mainLayoutThunk";
+import {Realm} from "../../../../type/Realm";
 
 type props = {
     currentApplication: Application | null,

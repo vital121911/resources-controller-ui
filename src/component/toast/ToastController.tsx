@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {messageForShow} from "../store/selector/selector";
+import {messageForShow} from "../../store/selector/selector";
 import {Toast, ToastMessageType} from "primereact/toast";
-import {severity, ToastMessage} from "../type/ToastMessage";
-import {setMessageForShow} from "../store/slice/mainLayoutSlice";
+import {severity, ToastMessage} from "../../type/ToastMessage";
+import {setMessageForShow} from "../../store/slice/mainLayoutSlice";
 
 type props = {}
 

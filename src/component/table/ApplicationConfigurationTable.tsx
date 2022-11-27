@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {currentApplication, currentResources} from "../store/selector/selector";
-import {fillResourcesByApplicationId} from "../store/thunk/mainLayoutThunk";
+import {currentApplication, currentResources} from "../../store/selector/selector";
+import {fillResourcesByApplicationId} from "../../store/thunk/mainLayoutThunk";
 import {DataTable} from "primereact/datatable";
-import {Application} from "../type/Application";
-import {Resource} from "../type/Resource";
+import {Application} from "../../type/Application";
+import {Resource} from "../../type/Resource";
 import {Column} from "primereact/column";
 import {TableToolBar} from "../toolBar/TableToolBar";
+import {AddResourceDialog} from "../tab/dialog/AddResourceDialog";
 
 
 export const ApplicationConfigurationTable: React.FC<any> = () => {
@@ -16,6 +17,8 @@ export const ApplicationConfigurationTable: React.FC<any> = () => {
     const currentResourcesSelector: Resource[] = useSelector(currentResources);
 
     const [selectedRow, setSelectedRow] = useState(null);
+
+    const [visibleDialog, setVisibleDialog] = useState(false);
 
 
     const dispatcher = useDispatch<any>();
@@ -27,7 +30,10 @@ export const ApplicationConfigurationTable: React.FC<any> = () => {
     }, [dispatcher, selectedApplicationSelector.id])
 
     return <>
-        <TableToolBar addAction={()=>{}}/>
+        <TableToolBar addAction={() => {
+            setVisibleDialog(true)
+        }}/>
+        <AddResourceDialog visible={visibleDialog} setVisible={setVisibleDialog}/>
         <DataTable value={currentResourcesSelector}
                    id={"allResourcesForApplicationsDataTable"}
                    rows={10}
