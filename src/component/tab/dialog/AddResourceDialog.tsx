@@ -27,7 +27,7 @@ export const AddResourceDialog: React.FC<props> = ({visible, setVisible}) => {
                 header={selectedApplicationSelector.name}
                 footer={<DialogFooterButton hide={() => setVisible(false)} save={() => {
                 }}/>}
-                visible={false}
+                visible={visible}
                 style={{width: '50%'}}
                 onHide={() => setVisible(false)}>
             <div style={{marginTop: "25px"}}>

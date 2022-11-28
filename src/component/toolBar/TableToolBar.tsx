@@ -15,13 +15,8 @@ export const TableToolBar: React.FC<props> = ({addAction}) => {
                 <Button
                     label="Add resource"
                     icon="pi pi-plus"
-                    onChange={event => addAction}
+                    onClick={() => addAction()}
                     className="p-button-success"/>
-                {/*<Button
-                    label="Отказать в подписи"
-                    icon="pi pi-times-circle"
-                    className="p-button-danger"
-                    style={{marginLeft: "5px"}}/>*/}
             </React.Fragment>
         )
     }

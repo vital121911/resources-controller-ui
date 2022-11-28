@@ -6,16 +6,14 @@ import {VersionDataContainer} from "../type/VersionDataContainer";
 export const ResourcesControllerApi = {
 
     getAllRealms: async () => {
-        const response = await ResourcesControllerServices().get("realm", {
+        return await ResourcesControllerServices().get("realm", {
             method: "GET",
-        })
-        return response;
+        });
     },
 
     saveRealm: async (realm: Realm) => {
-        const response = await ResourcesControllerServices().post("realm", realm, {method: "POST",}
-        )
-        return response;
+        return await ResourcesControllerServices().post("realm", realm, {method: "POST",}
+        );
     },
 
     getApplicationsById: async (realmId: string) => {

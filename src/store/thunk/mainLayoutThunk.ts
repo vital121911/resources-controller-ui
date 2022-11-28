@@ -96,7 +96,6 @@ export const fillResourcesByApplicationId = createAsyncThunk("resources/fillReso
 
 export const saveResource = createAsyncThunk("resources/saveResource", async (props: { container: VersionDataContainer }, thunkAPI) => {
     try {
-
         const response = await ResourcesControllerApi.saveResource(props.container);
         if (response.status === 200) {
             const resources: Resource[] = response.data;
