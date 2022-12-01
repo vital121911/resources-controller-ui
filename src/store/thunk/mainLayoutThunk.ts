@@ -13,6 +13,7 @@ import {severity, toMessage} from "../../type/ToastMessage";
 import {Application} from "../../type/Application";
 import {Resource} from "../../type/Resource";
 import {VersionDataContainer} from "../../type/VersionDataContainer";
+import {useSelector} from "react-redux";
 
 
 export const fillAllRealmToStore = createAsyncThunk("resources/fillAllRealmToStore", async (arg, thunkAPI) => {
@@ -94,12 +95,13 @@ export const fillResourcesByApplicationId = createAsyncThunk("resources/fillReso
     }
 })
 
-export const saveResource = createAsyncThunk("resources/saveResource", async (props: { container: VersionDataContainer }, thunkAPI) => {
+export const saveResource = createAsyncThunk("resources/saveResource", async (props: { resource: Resource,appID:string }, thunkAPI) => {
     try {
-        const response = await ResourcesControllerApi.saveResource(props.container);
+        const response = await ResourcesControllerApi.saveResource(props.resource);
         if (response.status === 200) {
-            const resources: Resource[] = response.data;
-            thunkAPI.dispatch(setCurrentResources(resources))
+            console.log(props.resource)
+            const resources: Resource = response.data;
+            thunkAPI.dispatch(fillResourcesByApplicationId({applicationId:props.appID}))
         } else {
             thunkAPI.dispatch(setMessageForShow([toMessage(severity.INFO, `response from server ${response.status}`)]))
         }

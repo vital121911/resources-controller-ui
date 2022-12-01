@@ -1,7 +1,6 @@
 export type Resource = {
-    applicationId: string,
+    applicationIds: Array<string>,
     id: string | null,
     resourceKey: string,
     resourceValue: string,
-    versionDataId: string | null
 }

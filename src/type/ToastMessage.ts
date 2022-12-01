@@ -5,7 +5,7 @@ export type ToastMessage = {
 }
 
 export enum severity {
-    ERROR, INFO, WARN,SUCCESS
+    ERROR, INFO, WARN, SUCCESS
 
 }
 

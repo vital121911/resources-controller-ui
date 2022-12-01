@@ -1,7 +1,7 @@
 import {ResourcesControllerServices} from "./instance/ServicesInstance"
 import {Realm} from "../type/Realm";
 import {Application} from "../type/Application";
-import {VersionDataContainer} from "../type/VersionDataContainer";
+import {Resource} from "../type/Resource";
 
 export const ResourcesControllerApi = {
 
@@ -38,8 +38,8 @@ export const ResourcesControllerApi = {
         );
     },
 
-    saveResource: async (container: VersionDataContainer) => {
-        return await ResourcesControllerServices().post(`version`, container, {
+    saveResource: async (resource: Resource) => {
+        return await ResourcesControllerServices().post(`resource`, resource, {
                 method: "POST",
             }
         );

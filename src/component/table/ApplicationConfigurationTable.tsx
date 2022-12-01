@@ -49,7 +49,7 @@ export const ApplicationConfigurationTable: React.FC<any> = () => {
                    emptyMessage={`Resources for ${selectedApplicationSelector.name} is not found`}
         >
             <Column field={"resourceKey"} header={"resource key"}/>
-            <Column field={"currentValue.value.data"} header={"current value"}/>
+            <Column field={"resourceValue"} header={"current value"}/>
             <Column field={"currentValue.version.description"} header={"current version"}/>
         </DataTable>
 
